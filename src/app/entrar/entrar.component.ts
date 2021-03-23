@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { UsuarioLogin } from '../models/UsuarioLogin';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-entrar',
@@ -10,10 +13,33 @@ export class EntrarComponent implements OnInit {
 
   usuarioLogin: UsuarioLogin = new UsuarioLogin
 
-  constructor() { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
     window.scroll(0,0)
+
+  }
+
+  entrar() {
+    this.auth.entrar(this.usuarioLogin).subscribe((resp) => {
+      this.usuarioLogin = resp
+
+      environment.token = this.usuarioLogin.token
+      environment.nome = this.usuarioLogin.nome
+      environment.foto = this.usuarioLogin.foto
+      environment.id = this.usuarioLogin.id
+
+      // console.log(environment.token)
+      // console.log(environment.nome)
+      // console.log(environment.foto)
+      // console.log(environment.id)
+
+      this.router.navigate(['/home'])
+    }, erro => {
+      if(erro.status == 500) {
+        alert('Usuário e/ou senha inválidos!')
+      }
+    })
   }
 
 }

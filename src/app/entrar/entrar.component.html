@@ -2,17 +2,17 @@
   <form class="bg-white p-5 rounded-lg">
     <div class="form-group">
       <label for="email">E-mail</label>
-      <input type="email" class="form-control" id="email" placeholder="Insira seu usuário">
+      <input [(ngModel)]="usuarioLogin.usuario" type="text" name="usuario" class="form-control" id="usuario" placeholder="Insira seu usuário">
     </div>
     <div class="form-group">
       <label for="password">Senha</label>
-      <input type="password" class="form-control" id="password" placeholder="Insira sua senha">
+      <input [(ngModel)]="usuarioLogin.senha" name="senha" type="password" class="form-control" id="senha" placeholder="Insira sua senha">
     </div>
     <div class="form-group form-check">
       <input type="checkbox" class="form-check-input" id="remember">
       <label class="form-check-label" for="remember">Lembrar-me</label>
     </div>
-    <button type="submit" class="btn btn-primary px-5">Entrar</button>
+    <button (click)="entrar()" type="submit" class="btn btn-primary px-5">Entrar</button>
     <div class="mt-4">
       <p>Ainda não tem cadastro? <a routerLink='/cadastrar'>Cadastrar-se</a></p>
     </div>
