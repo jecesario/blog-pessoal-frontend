@@ -24,4 +24,14 @@ export class AuthService {
     const url = this.baseUrl + '/usuarios/cadastrar';
     return this.http.post<Usuario>(url, usuario)
   }
+
+  logado() {
+    let ok = false
+
+    if(environment.token != '') {
+      ok = true
+    }
+
+    return ok
+  }
 }

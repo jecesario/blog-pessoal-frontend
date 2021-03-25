@@ -1,1 +1,3 @@
+<app-nav *ngIf="auth.logado()"></app-nav>
 <router-outlet></router-outlet>
+<app-footer *ngIf="auth.logado()"></app-footer>
