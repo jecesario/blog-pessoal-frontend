@@ -1,43 +1,46 @@
-<div class="bg-cadastrar">
+<div class="bg-cadastrar d-flex align-items-center">
     <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="col-6">
-                <form class="bg-white p-5 rounded-lg">
-                    <div class="form-group">
-                        <label for="nome">Nome</label>
-                        <input [(ngModel)]='usuario.nome' name="nome" type="text" class="form-control" id="nome" placeholder="Insira seu nome">
-                    </div>
-                    <div class="form-group">
-                        <label for="usuario">Usuário</label>
-                        <input [(ngModel)]="usuario.usuario" name="usuario" type="text" class="form-control" id="usuario" placeholder="Insira seu usuário">
-                    </div>
-                    <div class="form-group">
-                        <label for="linkFoto">Link da foto</label>
-                        <input [(ngModel)]="usuario.foto" name="foto" type="url" class="form-control" id="linkFoto" placeholder="Insira o link da sua foto">
-                    </div>
-                    <div class="form-group">
-                        <label for="senha">Senha</label>
-                        <input (input)="verificaSenha($event)" name="senhaConfirmacao" type="password" class="form-control" id="senhaConfirmacao" placeholder="Insira sua senha">
-                    </div>
-                    <div class="form-group">
-                        <label for="senhaConfirmacao">Confirmar Senha</label>
-                        <input [(ngModel)]="usuario.senha" name="senha" type="password" class="form-control" id="senha"
-                            placeholder="Confirme sua senha">
-                    </div>
-                    <div class="form-group">
-                        <label for="cargo">Tipo usuário</label>
-                        <select (change)="verificaUsuario($event)" name="tipo" class="form-control" id="tipo">
-                            <option value="">Selecione</option>
-                            <option value="normal">Normal</option>
-                            <option value="admin">Administrador</option>
-                        </select>
-                    </div>
-                    <button (click)="cadastrar()" type="submit" class="btn btn-primary px-5">Cadastrar</button>
-                    <div class="mt-4">
-                        <p>Já tem cadastro? <a routerLink='/entrar'>Entrar</a></p>
-                    </div>
-                </form>
-            </div>
+        <div class="row justify-content-center">
+            <form class="bg-white p-5 rounded-lg col-md-6">
+                <h1 class="mb-2 text-center">Cadastro</h1>
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input [(ngModel)]='usuario.nome' name="nome" type="text" class="form-control" id="nome"
+                        placeholder="Insira seu nome">
+                </div>
+                <div class="form-group">
+                    <label for="usuario">Usuário</label>
+                    <input [(ngModel)]="usuario.usuario" name="usuario" type="text" class="form-control" id="usuario"
+                        placeholder="Insira seu usuário">
+                </div>
+                <div class="form-group">
+                    <label for="linkFoto">Link da foto</label>
+                    <input [(ngModel)]="usuario.foto" name="foto" type="url" class="form-control" id="linkFoto"
+                        placeholder="Insira o link da sua foto">
+                </div>
+                <div class="form-group">
+                    <label for="senha">Senha</label>
+                    <input (input)="verificaSenha($event)" name="senhaConfirmacao" type="password" class="form-control"
+                        id="senhaConfirmacao" placeholder="Insira sua senha">
+                </div>
+                <div class="form-group">
+                    <label for="senhaConfirmacao">Confirmar Senha</label>
+                    <input [(ngModel)]="usuario.senha" name="senha" type="password" class="form-control" id="senha"
+                        placeholder="Confirme sua senha">
+                </div>
+                <div class="form-group">
+                    <label for="cargo">Tipo usuário</label>
+                    <select (change)="verificaUsuario($event)" name="tipo" class="form-control" id="tipo">
+                        <option value="">Selecione</option>
+                        <option value="normal">Normal</option>
+                        <option value="admin">Administrador</option>
+                    </select>
+                </div>
+                <button (click)="cadastrar()" type="submit" class="btn btn-primary px-5">Cadastrar</button>
+                <div class="mt-4">
+                    <p>Já tem cadastro? <a routerLink='/entrar'>Entrar</a></p>
+                </div>
+            </form>
         </div>
     </div>
 </div>
