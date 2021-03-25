@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { TemaComponent } from './tema/tema.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     CadastrarComponent,
     NavComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    TemaComponent
   ],
   imports: [
     BrowserModule,
