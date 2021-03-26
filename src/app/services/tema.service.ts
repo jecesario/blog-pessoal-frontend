@@ -22,8 +22,23 @@ export class TemaService {
     return this.http.get<Tema[]>(url, this.token)
   }
 
+  findById(id: number): Observable<Tema> {
+    const url = this.baseUrl + `/temas/${id}`
+    return this.http.get<Tema>(url, this.token)
+  }
+
   create(tema: Tema): Observable<Tema> {
     const url = this.baseUrl + '/temas'
     return this.http.post<Tema>(url, tema, this.token)
+  }
+
+  update(tema: Tema): Observable<Tema> {
+    const url = this.baseUrl + '/temas'
+    return this.http.put<Tema>(url, tema, this.token)
+  }
+
+  delete(id: number) {
+    const url = this.baseUrl + `/temas/${id}`
+    return this.http.delete(url, this.token)
   }
 }

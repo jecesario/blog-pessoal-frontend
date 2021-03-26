@@ -38,8 +38,8 @@
                         <th scope="row">{{item.id}}</th>
                         <td>{{item.descricao}}</td>
                         <td class="d-flex justify-content-end">
-                            <a class="btn btn-warning mr-2">Editar</a>
-                            <a class="btn btn-danger">Apagar</a>
+                            <a [routerLink]="['/tema/editar', item.id]" class="btn btn-warning mr-2">Editar</a>
+                            <a [routerLink]="['/tema/deletar', item.id]" class="btn btn-danger">Apagar</a>
                         </td>
                     </tr>
                 </tbody>
