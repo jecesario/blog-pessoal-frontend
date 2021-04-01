@@ -16,14 +16,8 @@ export class TemaEditComponent implements OnInit {
   constructor(private temaService: TemaService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    if(environment.token == '') {
-      this.router.navigate(['/entrar'])
-    }
-
     let id = this.route.snapshot.params['id']
     this.editarTema(id)
-
-    console.log(this.tema)
   }
 
   editarTema(id: number) {

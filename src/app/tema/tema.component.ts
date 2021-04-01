@@ -17,9 +17,6 @@ export class TemaComponent implements OnInit {
   constructor(private router: Router, private temaService: TemaService) { }
 
   ngOnInit() {
-    if(environment.token == '') {
-      this.router.navigate(['/entrar'])
-    }
     this.listar()
   }
 
