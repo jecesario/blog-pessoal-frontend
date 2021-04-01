@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ThrowStmt } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -25,10 +25,15 @@ export class AuthService {
     return this.http.post<Usuario>(url, usuario)
   }
 
+  getUsuario(id: number): Observable<Usuario> {
+    const url = this.baseUrl + `/usuarios/${id}`
+    return this.http.get<Usuario>(url, {headers: {'Authorization': environment.token}})
+  }
+
   logado() {
     let ok = false
 
-    if(environment.token != '') {
+    if (environment.token != '') {
       ok = true
     }
 
