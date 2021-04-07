@@ -68,6 +68,8 @@
                                 {{postagem.data | date: 'dd/MM/yyyy'}} às {{postagem.data | date: 'HH:mm'}}
                             </small>
                         </p>
+                        <a [routerLink]="['/postagem/editar/', postagem.id]" class="btn btn-warning mr-3">Editar</a>
+                        <a [routerLink]="['/postagem/deletar/', postagem.id]" class="btn btn-danger">Apagar</a>
                     </div>
                 </div>
             </div>

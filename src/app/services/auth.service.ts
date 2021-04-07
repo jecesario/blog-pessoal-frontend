@@ -15,6 +15,12 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+  token = {
+    headers: {
+      'Authorization': environment.token
+    }
+  }
+
   entrar(usuarioLogin: UsuarioLogin): Observable<UsuarioLogin> {
     const url = this.baseUrl + '/usuarios/logar'
     return this.http.post<UsuarioLogin>(url, usuarioLogin)
@@ -23,6 +29,11 @@ export class AuthService {
   cadastrar(usuario: Usuario): Observable<Usuario> {
     const url = this.baseUrl + '/usuarios/cadastrar';
     return this.http.post<Usuario>(url, usuario)
+  }
+
+  atualizar(usuario: Usuario): Observable<Usuario> {
+    const url = this.baseUrl + '/usuarios';
+    return this.http.put<Usuario>(url, usuario, {headers: {'Authorization': environment.token}})
   }
 
   getUsuario(id: number): Observable<Usuario> {
